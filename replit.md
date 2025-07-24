@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a full-stack web application built with React and Express.js, featuring a modern barbershop website theme called "Kings Barbershop". The application uses a monorepo structure with separate client and server directories, utilizing TypeScript throughout for type safety.
+This is a highly animated, modern barbershop website for Kings Barbershop in Woodland, California. Built with React and Express.js, featuring extensive animations, a blue/red color theme, and mobile responsiveness. The application uses a monorepo structure with separate client and server directories, utilizing TypeScript throughout for type safety. Optimized for Vercel deployment with comprehensive animation system and real barbershop gallery images.
 
 ## User Preferences
 
@@ -52,9 +52,18 @@ Preferred communication style: Simple, everyday language.
 
 ### Frontend Components
 - **UI Library**: Complete shadcn/ui component set including forms, dialogs, cards, etc.
-- **Theme**: Custom Kings Barbershop color scheme with CSS variables
+- **Theme**: Blue/red color scheme with gold accents optimized for barbershop branding
 - **Responsive**: Mobile-first design with Tailwind breakpoints
-- **Animations**: Framer Motion for page transitions and interactions
+- **Advanced Animations**: Extensive animation system including:
+  - Framer Motion for complex page transitions and interactions
+  - Custom CSS animations: floating, pulse, slide-in, scale-in, rotate-in
+  - Icon animations: bounce, spin, wobble, pulse effects
+  - Enhanced hover effects with 3D transforms
+  - Parallax and particle effects
+  - Staggered animations with custom delays
+  - Performance-optimized with will-change and backface-visibility
+- **Gallery**: Real barbershop images from Kings Barbershop portfolio
+- **Google Maps Integration**: Embedded map for 368 California St, Woodland, CA location
 
 ### API Structure
 - **Base Path**: All API routes prefixed with `/api`
@@ -113,5 +122,12 @@ Preferred communication style: Simple, everyday language.
 - **DATABASE_URL**: PostgreSQL connection string (required)
 - **Build Scripts**: Separate build processes for client and server
 - **Start Script**: Production server startup from bundled code
+
+### Vercel Deployment
+- **Configuration**: `vercel.json` configured for hybrid deployment
+- **Build Process**: Automatic builds for both frontend and backend
+- **Routes**: API routes handled by serverless functions, static assets served via CDN
+- **Environment**: Production environment variables automatically configured
+- **Performance**: Optimized for fast loading and smooth animations
 
 The application is designed as a modern, type-safe full-stack solution with a focus on developer experience through hot reloading, TypeScript support, and a clean separation of concerns between frontend, backend, and database layers.

@@ -1,5 +1,9 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import galleryImage1 from "@assets/Screen Shot 2025-07-24 at 2.35.23 PM_1753385949008.png";
+import galleryImage2 from "@assets/Screen Shot 2025-07-24 at 2.34.53 PM_1753385949008.png";
+import galleryImage3 from "@assets/Screen Shot 2025-07-24 at 2.34.38 PM_1753385949009.png";
+import galleryImage4 from "@assets/Screen Shot 2025-07-24 at 2.34.18 PM_1753385950416.png";
 
 const Home = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -20,7 +24,7 @@ const Home = () => {
     }, observerOptions);
 
     // Observe all elements with animation classes
-    const animatedElements = document.querySelectorAll('.slide-in-left, .slide-in-right, .slide-in-up, .fade-in');
+    const animatedElements = document.querySelectorAll('.slide-in-left, .slide-in-right, .slide-in-up, .slide-in-down, .fade-in, .scale-in, .rotate-in');
     animatedElements.forEach(el => observerRef.current?.observe(el));
 
     // Smooth scrolling for navigation links
@@ -56,14 +60,14 @@ const Home = () => {
   ];
 
   const galleryImages = [
-    "https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-    "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-    "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-    "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-    "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-    "https://images.unsplash.com/photo-1621607512214-68297480165e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-    "https://images.unsplash.com/photo-1622286346003-c3caed9f2cb6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-    "https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400"
+    galleryImage1,
+    galleryImage2,
+    galleryImage3,
+    galleryImage4,
+    galleryImage1, // Repeat for more grid items
+    galleryImage2,
+    galleryImage3,
+    galleryImage4
   ];
 
   const reviews = [
@@ -91,44 +95,128 @@ const Home = () => {
   return (
     <div className="bg-background text-foreground">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-sm shadow-lg z-50 slide-in-up">
+      <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-sm shadow-lg z-50 slide-in-down particles">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <i className="fas fa-crown text-yellow-500 text-2xl mr-2"></i>
-              <span className="text-xl font-bold">Kings Barbershop</span>
-            </div>
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="#about" className="hover:text-blue-600 transition-colors">About</a>
-              <a href="#services" className="hover:text-blue-600 transition-colors">Services</a>
-              <a href="#gallery" className="hover:text-blue-600 transition-colors">Gallery</a>
-              <a href="#reviews" className="hover:text-blue-600 transition-colors">Reviews</a>
-              <a href="#contact" className="hover:text-blue-600 transition-colors">Contact</a>
-            </div>
-            <button 
-              onClick={callNow}
-              className="btn-call bg-red-500 text-white px-6 py-2 rounded-full font-semibold hover:bg-red-600 transition-all"
+            <motion.div 
+              className="flex items-center"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <i className="fas fa-phone mr-2"></i>Call Now
-            </button>
+              <i className="fas fa-crown text-yellow-500 text-2xl mr-2 icon-wobble"></i>
+              <span className="text-xl font-bold text-glow">Kings Barbershop</span>
+            </motion.div>
+            <div className="hidden md:flex items-center space-x-8">
+              {['About', 'Services', 'Gallery', 'Reviews', 'Contact'].map((item, index) => (
+                <motion.a 
+                  key={item}
+                  href={`#${item.toLowerCase()}`} 
+                  className="hover:text-blue-600 transition-all duration-300 hover:scale-110 text-slide"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.1 * index }}
+                >
+                  {item}
+                </motion.a>
+              ))}
+            </div>
+            <motion.button 
+              onClick={callNow}
+              className="btn-call bg-red-500 text-white px-6 py-2 rounded-full font-semibold hover:bg-red-600 transition-all pulse-custom"
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.5, type: "spring", stiffness: 200 }}
+            >
+              <i className="fas fa-phone mr-2 wave"></i>Call Now
+            </motion.button>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="animated-bg min-h-screen flex items-center justify-center text-center text-white relative overflow-hidden">
+      <section className="animated-bg min-h-screen flex items-center justify-center text-center text-white relative overflow-hidden particles">
         <div className="absolute inset-0 bg-black/40"></div>
         
-        {/* Floating Elements */}
-        <div className="absolute top-20 left-10 text-yellow-500 floating">
-          <i className="fas fa-cut text-4xl opacity-20"></i>
-        </div>
-        <div className="absolute bottom-32 right-20 text-yellow-500 floating" style={{ animationDelay: '-2s' }}>
-          <i className="fas fa-scissors text-3xl opacity-20"></i>
-        </div>
-        <div className="absolute top-1/2 left-20 text-yellow-500 floating" style={{ animationDelay: '-4s' }}>
-          <i className="fas fa-razor text-2xl opacity-20"></i>
-        </div>
+        {/* Enhanced Floating Elements */}
+        <motion.div 
+          className="absolute top-20 left-10 text-yellow-500"
+          animate={{ 
+            y: [0, -20, 0],
+            rotate: [0, 5, -5, 0],
+            scale: [1, 1.1, 1]
+          }}
+          transition={{ 
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          <i className="fas fa-cut text-4xl opacity-30 icon-pulse"></i>
+        </motion.div>
+        
+        <motion.div 
+          className="absolute bottom-32 right-20 text-yellow-500"
+          animate={{ 
+            y: [0, -25, 0],
+            x: [0, 10, 0],
+            rotate: [0, -10, 10, 0]
+          }}
+          transition={{ 
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }}
+        >
+          <i className="fas fa-scissors text-3xl opacity-30 icon-wobble"></i>
+        </motion.div>
+        
+        <motion.div 
+          className="absolute top-1/2 left-20 text-yellow-500"
+          animate={{ 
+            y: [0, -15, 0],
+            rotate: [0, 360]
+          }}
+          transition={{ 
+            y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+            rotate: { duration: 8, repeat: Infinity, ease: "linear" }
+          }}
+        >
+          <i className="fas fa-razor text-2xl opacity-30"></i>
+        </motion.div>
+        
+        <motion.div 
+          className="absolute top-32 right-32 text-red-400"
+          animate={{ 
+            scale: [1, 1.2, 1],
+            opacity: [0.2, 0.4, 0.2]
+          }}
+          transition={{ 
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2
+          }}
+        >
+          <i className="fas fa-spa text-2xl"></i>
+        </motion.div>
+        
+        <motion.div 
+          className="absolute bottom-20 left-32 text-blue-400"
+          animate={{ 
+            y: [0, -30, 0],
+            rotate: [0, 180, 360]
+          }}
+          transition={{ 
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.5
+          }}
+        >
+          <i className="fas fa-user-tie text-3xl opacity-25"></i>
+        </motion.div>
         
         <motion.div 
           className="relative z-10 max-w-4xl mx-auto px-4"
@@ -184,54 +272,113 @@ const Home = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-white">
+      <section id="about" className="py-20 bg-white particles">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-16 slide-in-up">
-            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">About Kings Barbershop</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <motion.h2 
+              className="text-4xl md:text-5xl font-black text-slate-900 mb-6 text-glow"
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.2, type: "spring", stiffness: 200 }}
+              viewport={{ once: true }}
+            >
+              About Kings Barbershop
+            </motion.h2>
+            <motion.p 
+              className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
               Where tradition meets modern style. Our master barbers deliver premium cuts and grooming services in the heart of Woodland, California.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
           
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="slide-in-left">
-              <img 
+            <motion.div 
+              className="slide-in-left"
+              initial={{ opacity: 0, x: -100, rotateY: -15 }}
+              whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+              transition={{ duration: 1, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <motion.img 
                 src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
                 alt="Modern barbershop interior" 
-                className="rounded-xl shadow-2xl w-full h-auto pulse-custom" 
+                className="rounded-xl shadow-2xl w-full h-auto" 
+                whileHover={{ 
+                  scale: 1.05,
+                  rotateY: 5,
+                  boxShadow: "0 25px 50px rgba(0,0,0,0.3)"
+                }}
+                transition={{ duration: 0.3 }}
               />
-            </div>
+            </motion.div>
             
             <div className="slide-in-right">
               <div className="grid grid-cols-2 gap-6 mb-8">
-                <div className="text-center service-card bg-blue-50 p-6 rounded-xl">
-                  <i className="fas fa-cut text-4xl text-blue-600 mb-4 icon-bounce"></i>
-                  <h3 className="font-bold text-slate-900 mb-2">Expert Cuts</h3>
-                  <p className="text-gray-600 text-sm">Precision styling by master barbers</p>
-                </div>
-                <div className="text-center service-card bg-red-50 p-6 rounded-xl">
-                  <i className="fas fa-star text-4xl text-red-500 mb-4 icon-bounce" style={{ animationDelay: '-0.5s' }}></i>
-                  <h3 className="font-bold text-slate-900 mb-2">Premium Service</h3>
-                  <p className="text-gray-600 text-sm">Luxury experience every visit</p>
-                </div>
-                <div className="text-center service-card bg-yellow-50 p-6 rounded-xl">
-                  <i className="fas fa-clock text-4xl text-yellow-500 mb-4 icon-bounce" style={{ animationDelay: '-1s' }}></i>
-                  <h3 className="font-bold text-slate-900 mb-2">Convenient Hours</h3>
-                  <p className="text-gray-600 text-sm">Open 6 days a week</p>
-                </div>
-                <div className="text-center service-card bg-blue-50 p-6 rounded-xl">
-                  <i className="fas fa-map-marker-alt text-4xl text-blue-500 mb-4 icon-bounce" style={{ animationDelay: '-1.5s' }}></i>
-                  <h3 className="font-bold text-slate-900 mb-2">Prime Location</h3>
-                  <p className="text-gray-600 text-sm">Heart of Woodland, CA</p>
-                </div>
+                {[
+                  { icon: "fas fa-cut", title: "Expert Cuts", desc: "Precision styling by master barbers", bg: "bg-blue-50", color: "text-blue-600", delay: 0 },
+                  { icon: "fas fa-star", title: "Premium Service", desc: "Luxury experience every visit", bg: "bg-red-50", color: "text-red-500", delay: 0.1 },
+                  { icon: "fas fa-clock", title: "Convenient Hours", desc: "Open 6 days a week", bg: "bg-yellow-50", color: "text-yellow-500", delay: 0.2 },
+                  { icon: "fas fa-map-marker-alt", title: "Prime Location", desc: "Heart of Woodland, CA", bg: "bg-blue-50", color: "text-blue-500", delay: 0.3 }
+                ].map((item, index) => (
+                  <motion.div 
+                    key={index}
+                    className={`text-center service-card ${item.bg} p-6 rounded-xl`}
+                    initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+                    whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                    transition={{ 
+                      duration: 0.6, 
+                      delay: item.delay,
+                      type: "spring",
+                      stiffness: 200
+                    }}
+                    viewport={{ once: true }}
+                    whileHover={{
+                      y: -10,
+                      scale: 1.05,
+                      rotate: 2,
+                      transition: { duration: 0.2 }
+                    }}
+                  >
+                    <motion.i 
+                      className={`${item.icon} text-4xl ${item.color} mb-4`}
+                      animate={{ 
+                        y: [0, -5, 0],
+                        rotate: [0, 5, -5, 0]
+                      }}
+                      transition={{ 
+                        duration: 2,
+                        repeat: Infinity,
+                        delay: index * 0.5
+                      }}
+                    ></motion.i>
+                    <h3 className="font-bold text-slate-900 mb-2">{item.title}</h3>
+                    <p className="text-gray-600 text-sm">{item.desc}</p>
+                  </motion.div>
+                ))}
               </div>
               
-              <button 
+              <motion.button 
                 onClick={callNow}
-                className="btn-call bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-bold shadow-xl"
+                className="btn-call bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-bold shadow-xl pulse-custom"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <i className="fas fa-phone mr-3"></i>Book Your Appointment
-              </button>
+                <i className="fas fa-phone mr-3 wave"></i>Book Your Appointment
+              </motion.button>
             </div>
           </div>
         </div>
@@ -449,35 +596,89 @@ const Home = () => {
             </div>
             
             <motion.div 
-              className="slide-in-right text-center"
+              className="slide-in-right"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="bg-blue-600/20 backdrop-blur-sm p-12 rounded-xl border border-blue-600/30">
-                <i className="fas fa-crown text-6xl text-yellow-500 mb-6 floating"></i>
-                <h3 className="text-3xl font-bold mb-6">Ready for the Royal Treatment?</h3>
-                <p className="text-lg opacity-90 mb-8">Experience the difference at Kings Barbershop. Call now to book your appointment!</p>
-                
-                <button 
-                  onClick={callNow}
-                  className="btn-call bg-red-500 hover:bg-red-600 text-white px-10 py-5 rounded-full text-xl font-bold shadow-2xl inline-block mb-4"
+              <div className="space-y-8">
+                {/* Google Maps */}
+                <motion.div 
+                  className="bg-white/10 backdrop-blur-sm rounded-xl overflow-hidden border border-white/20"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  viewport={{ once: true }}
                 >
-                  <i className="fas fa-phone mr-3"></i>Call Now - (530) 665-3684
-                </button>
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3045.4234567890123!2d-121.7911391!3d38.6780595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808529e8f9f9f9f9%3A0x123456789abcdef!2s368%20California%20St%2C%20Woodland%2C%20CA%2095695%2C%20USA!5e0!3m2!1sen!2sus!4v1642567890123!5m2!1sen!2sus"
+                    width="100%"
+                    height="300"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Kings Barbershop Location - 368 California St, Woodland, CA"
+                  ></iframe>
+                </motion.div>
                 
-                <div className="mt-6 flex justify-center space-x-6">
-                  <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all cursor-pointer">
-                    <i className="fab fa-facebook-f text-xl"></i>
+                {/* Call to Action */}
+                <motion.div 
+                  className="bg-blue-600/20 backdrop-blur-sm p-8 rounded-xl border border-blue-600/30 text-center"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                  viewport={{ once: true }}
+                >
+                  <motion.i 
+                    className="fas fa-crown text-5xl text-yellow-500 mb-4 block"
+                    animate={{ 
+                      rotate: [0, 5, -5, 0],
+                      scale: [1, 1.1, 1]
+                    }}
+                    transition={{ 
+                      duration: 3,
+                      repeat: Infinity
+                    }}
+                  ></motion.i>
+                  <h3 className="text-2xl font-bold mb-4">Ready for the Royal Treatment?</h3>
+                  <p className="text-lg opacity-90 mb-6">Experience the difference at Kings Barbershop!</p>
+                  
+                  <motion.button 
+                    onClick={callNow}
+                    className="btn-call bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-full text-lg font-bold shadow-2xl inline-block mb-4 pulse-custom"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <i className="fas fa-phone mr-3 wave"></i>Call Now - (530) 665-3684
+                  </motion.button>
+                  
+                  <div className="mt-6 flex justify-center space-x-4">
+                    {[
+                      { icon: "fab fa-facebook-f", delay: 0 },
+                      { icon: "fab fa-instagram", delay: 0.1 },
+                      { icon: "fab fa-google", delay: 0.2 }
+                    ].map((social, index) => (
+                      <motion.div 
+                        key={index}
+                        className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all cursor-pointer service-card"
+                        initial={{ opacity: 0, scale: 0 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ 
+                          duration: 0.5, 
+                          delay: social.delay,
+                          type: "spring",
+                          stiffness: 200
+                        }}
+                        viewport={{ once: true }}
+                        whileHover={{ scale: 1.2, rotate: 10 }}
+                      >
+                        <i className={`${social.icon} text-xl`}></i>
+                      </motion.div>
+                    ))}
                   </div>
-                  <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all cursor-pointer">
-                    <i className="fab fa-instagram text-xl"></i>
-                  </div>
-                  <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all cursor-pointer">
-                    <i className="fab fa-google text-xl"></i>
-                  </div>
-                </div>
+                </motion.div>
               </div>
             </motion.div>
           </div>
