@@ -4,7 +4,7 @@ import galleryImage1 from "@assets/Screen Shot 2025-07-24 at 2.35.23 PM_17533859
 import galleryImage2 from "@assets/Screen Shot 2025-07-24 at 2.34.53 PM_1753385949008.png";
 import galleryImage3 from "@assets/Screen Shot 2025-07-24 at 2.34.38 PM_1753385949009.png";
 import galleryImage4 from "@assets/Screen Shot 2025-07-24 at 2.34.18 PM_1753385950416.png";
-import kingsLogo from "@assets/Elegant Kings Barbershop Logo_1753386406103.png";
+import lavishLogo from "@assets/Elegant Kings Barbershop Logo_1753386406103.png";
 import barbershopPhoto from "@assets/Screen Shot 2025-07-24 at 2.52.27 PM_1753386825029.png";
 
 const Home = () => {
@@ -71,7 +71,7 @@ const Home = () => {
   const reviews = [
     {
       name: "Mike Johnson",
-      text: "Best barbershop in Woodland! The attention to detail is incredible and the atmosphere is perfect. Been coming here for 2 years now.",
+      text: "Best barbershop in Sacramento! The attention to detail is incredible and the atmosphere is perfect. Been coming here for 2 years now.",
       role: "Regular Customer"
     },
     {
@@ -81,13 +81,13 @@ const Home = () => {
     },
     {
       name: "Carlos Rodriguez",
-      text: "Kings Barbershop is the real deal. Clean, professional, and they take their time to make sure everything is perfect. Worth every penny!",
+      text: "Lavish Barbershop is the real deal. Clean, professional, and they take their time to make sure everything is perfect. Worth every penny!",
       role: "Local Resident"
     }
   ];
 
   const callNow = () => {
-    window.location.href = "tel:+15306653684";
+    window.location.href = "tel:+19169490376";
   };
 
   return (
@@ -103,13 +103,13 @@ const Home = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <motion.img 
-                src={kingsLogo} 
-                alt="Kings Barbershop Logo" 
+                src={lavishLogo} 
+                alt="Lavish Barbershop Logo" 
                 className="h-8 w-auto mr-3 elastic-bounce"
                 animate={{ rotate: [0, 2, -2, 0] }}
                 transition={{ duration: 4, repeat: Infinity }}
               />
-              <span className="text-xl font-bold text-black dark:text-white glitch">Kings Barbershop</span>
+              <span className="text-xl font-bold text-black dark:text-white glitch">Lavish Barbershop</span>
             </motion.div>
             <div className="hidden md:flex items-center space-x-8">
               {['About', 'Services', 'Gallery', 'Reviews', 'Contact'].map((item, index) => (
@@ -247,8 +247,8 @@ const Home = () => {
             }}
           >
             <motion.img 
-              src={kingsLogo} 
-              alt="Kings Barbershop Logo" 
+              src={lavishLogo} 
+              alt="Lavish Barbershop Logo" 
               className="w-24 h-auto zoom-pulse"
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}
@@ -273,7 +273,7 @@ const Home = () => {
               }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              KINGS
+              LAVISH
             </motion.span>
             <motion.span 
               className="block text-red-500 bounce-in"
@@ -297,7 +297,7 @@ const Home = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.6 }}
           >
-            Premium Cuts & Styling in Woodland, California
+            Premium Cuts & Styling in Sacramento, California
           </motion.p>
           
           <motion.div 
@@ -377,7 +377,7 @@ const Home = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              Where tradition meets modern style. Our master barbers deliver premium cuts and grooming services in the heart of Woodland, California.
+              Where tradition meets modern style. Our master barbers deliver premium cuts and grooming services in the heart of Sacramento, California.
             </motion.p>
           </motion.div>
           
@@ -391,7 +391,7 @@ const Home = () => {
             >
               <motion.img 
                 src={barbershopPhoto} 
-                alt="Kings Barbershop interior with barbers and clients" 
+                alt="Lavish Barbershop interior with barbers and clients" 
                 className="rounded-xl shadow-2xl w-full h-auto" 
                 whileHover={{ 
                   scale: 1.05,
@@ -408,7 +408,7 @@ const Home = () => {
                   { icon: "fas fa-cut", title: "Expert Cuts", desc: "Precision styling by master barbers", bg: "bg-blue-50", color: "text-blue-600", delay: 0 },
                   { icon: "fas fa-star", title: "Premium Service", desc: "Luxury experience every visit", bg: "bg-red-50", color: "text-red-500", delay: 0.1 },
                   { icon: "fas fa-clock", title: "Convenient Hours", desc: "Open 6 days a week", bg: "bg-black/10", color: "text-black", delay: 0.2 },
-                  { icon: "fas fa-map-marker-alt", title: "Prime Location", desc: "Heart of Woodland, CA", bg: "bg-blue-50", color: "text-blue-500", delay: 0.3 }
+                  { icon: "fas fa-map-marker-alt", title: "Prime Location", desc: "Heart of Sacramento, CA", bg: "bg-blue-50", color: "text-blue-500", delay: 0.3 }
                 ].map((item, index) => (
                   <motion.div 
                     key={index}
@@ -803,7 +803,7 @@ const Home = () => {
                   </motion.div>
                   <div>
                     <h3 className="text-xl font-bold mb-2">Address</h3>
-                    <p className="opacity-80">368 California St, Woodland, CA 95695, United States</p>
+                    <p className="opacity-80">3408 Northgate Blvd #5, Sacramento, CA 95834, United States</p>
                   </div>
                 </motion.div>
                 
@@ -835,7 +835,7 @@ const Home = () => {
                   </motion.div>
                   <div>
                     <h3 className="text-xl font-bold mb-2">Phone</h3>
-                    <p className="opacity-80">+1 (530) 665-3684</p>
+                    <p className="opacity-80">+1 (916) 949-0376</p>
                   </div>
                 </motion.div>
                 
@@ -868,10 +868,9 @@ const Home = () => {
                   <div>
                     <h3 className="text-xl font-bold mb-2">Hours</h3>
                     <div className="opacity-80 space-y-1">
-                      <p>Mon–Wed, Fri: 9 a.m.–6 p.m.</p>
-                      <p>Thurs: 9 a.m.–6 p.m.</p>
-                      <p>Sat: 8 a.m.–4 p.m.</p>
-                      <p>Sun: Closed</p>
+                      <p>Tuesday–Friday: 8 a.m.–7 p.m.</p>
+                      <p>Saturday: 8 a.m.–7 p.m.</p>
+                      <p>Sunday–Monday: Closed</p>
                     </div>
                   </div>
                 </motion.div>
@@ -895,14 +894,14 @@ const Home = () => {
                   viewport={{ once: true }}
                 >
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3045.4234567890123!2d-121.7911391!3d38.6780595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808529e8f9f9f9f9%3A0x123456789abcdef!2s368%20California%20St%2C%20Woodland%2C%20CA%2095695%2C%20USA!5e0!3m2!1sen!2sus!4v1642567890123!5m2!1sen!2sus"
+                    src="https://www.google.com/maps/place/Lavish+Barbershop/@38.6288499,-121.4749474,3a,75y,90t/data=!3m8!1e2!3m6!1sAF1QipMv9bKmEpDh5MjvB2QCInCRE-KHH6NF8HxpU_JO!2e10!3e12!6shttps:%2F%2Flh3.googleusercontent.com%2Fp%2FAF1QipMv9bKmEpDh5MjvB2QCInCRE-KHH6NF8HxpU_JO%3Dw203-h270-k-no!7i1124!8i1500!4m16!1m8!3m7!1s0x809ad7a75a47527b:0x72f34e06ca73220d!2sLavish+Barbershop!8m2!3d38.6289322!4d-121.4750079!10e5!16s%2Fg%2F11g7npztc6!3m6!1s0x809ad7a75a47527b:0x72f34e06ca73220d!8m2!3d38.6289322!4d-121.4750079!10e5!16s%2Fg%2F11g7npztc6?entry=ttu&g_ep=EgoyMDI1MDcyMS4wIKXMDSoASAFQAw%3D%3D"
                     width="100%"
                     height="300"
                     style={{ border: 0 }}
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="Kings Barbershop Location - 368 California St, Woodland, CA"
+                    title="Lavish Barbershop Location - 3408 Northgate Blvd #5, Sacramento, CA"
                   ></iframe>
                 </motion.div>
                 
@@ -914,19 +913,20 @@ const Home = () => {
                   transition={{ duration: 0.8, delay: 0.4 }}
                   viewport={{ once: true }}
                 >
-                  <motion.i 
-                    className="fas fa-crown text-5xl text-yellow-500 mb-4 block"
+                  <motion.img 
+                    src={lavishLogo}
+                    alt="Lavish Barbershop Logo"
+                    className="w-24 h-auto mx-auto mb-4 block"
                     animate={{ 
-                      rotate: [0, 5, -5, 0],
-                      scale: [1, 1.1, 1]
+                      scale: [1, 1.05, 1]
                     }}
                     transition={{ 
                       duration: 3,
                       repeat: Infinity
                     }}
-                  ></motion.i>
-                  <h3 className="text-2xl font-bold mb-4">Ready for the Royal Treatment?</h3>
-                  <p className="text-lg opacity-90 mb-6">Experience the difference at Kings Barbershop!</p>
+                  />
+                  <h3 className="text-2xl font-bold mb-4">Ready for the Lavish Treatment?</h3>
+                  <p className="text-lg opacity-90 mb-6">Experience the difference at Lavish Barbershop!</p>
                   
                   <motion.button 
                     onClick={callNow}
@@ -934,14 +934,14 @@ const Home = () => {
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <i className="fas fa-phone mr-3 wave"></i>Call Now - (530) 665-3684
+                    <i className="fas fa-phone mr-3 wave"></i>Call Now - (916) 949-0376
                   </motion.button>
                   
                   <div className="mt-6 flex justify-center space-x-4">
                     {[
                       { icon: "fab fa-facebook-f", delay: 0 },
                       { icon: "fab fa-instagram", delay: 0.1 },
-                      { icon: "fab fa-google", delay: 0.2 }
+                      { icon: "fas fa-star", delay: 0.2 }
                     ].map((social, index) => (
                       <motion.div 
                         key={index}
@@ -972,12 +972,12 @@ const Home = () => {
       <footer className="bg-black text-white py-12">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <div className="flex items-center justify-center mb-6">
-            <i className="fas fa-crown text-yellow-500 text-3xl mr-3"></i>
-            <span className="text-2xl font-bold">Kings Barbershop</span>
+            <img src={lavishLogo} alt="Lavish Barbershop Logo" className="h-16 w-auto mr-3" />
+            <span className="text-2xl font-bold">Lavish Barbershop</span>
           </div>
-          <p className="opacity-70 mb-6">Premium Cuts & Styling in Woodland, California</p>
+          <p className="opacity-70 mb-6">Premium Cuts & Styling in Sacramento, California</p>
           <div className="border-t border-gray-800 pt-6">
-            <p className="opacity-50">&copy; 2024 Kings Barbershop. All rights reserved.</p>
+            <p className="opacity-50">&copy; 2024 Lavish Barbershop. All rights reserved.</p>
           </div>
         </div>
       </footer>
