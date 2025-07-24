@@ -4,7 +4,7 @@ import galleryImage1 from "@assets/Screen Shot 2025-07-24 at 2.35.23 PM_17533859
 import galleryImage2 from "@assets/Screen Shot 2025-07-24 at 2.34.53 PM_1753385949008.png";
 import galleryImage3 from "@assets/Screen Shot 2025-07-24 at 2.34.38 PM_1753385949009.png";
 import galleryImage4 from "@assets/Screen Shot 2025-07-24 at 2.34.18 PM_1753385950416.png";
-import lavishLogo from "@assets/Elegant Kings Barbershop Logo_1753386406103.png";
+import lavishLogo from "@assets/Lavish_Barbershop_Logo_Design-removebg-preview_1753399758916.png";
 import barbershopPhoto from "@assets/Screen Shot 2025-07-24 at 2.52.27 PM_1753386825029.png";
 
 const Home = () => {
@@ -256,40 +256,7 @@ const Home = () => {
             />
           </motion.div>
           
-          <motion.h1 
-            className="text-5xl md:text-7xl font-black mb-6 leading-tight"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
-          >
-            <motion.span 
-              className="block text-white glitch"
-              animate={{ 
-                textShadow: [
-                  "0 0 0 rgba(0, 102, 255, 0)",
-                  "2px 2px 0 rgba(0, 102, 255, 0.5)",
-                  "0 0 0 rgba(0, 102, 255, 0)"
-                ]
-              }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              LAVISH
-            </motion.span>
-            <motion.span 
-              className="block text-red-500 bounce-in"
-              animate={{ 
-                scale: [1, 1.05, 1],
-                textShadow: [
-                  "0 0 10px rgba(239, 68, 68, 0.5)",
-                  "0 0 20px rgba(239, 68, 68, 0.8)",
-                  "0 0 10px rgba(239, 68, 68, 0.5)"
-                ]
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
-              BARBERSHOP
-            </motion.span>
-          </motion.h1>
+
           
           <motion.p 
             className="text-xl md:text-2xl mb-8 font-medium opacity-90"
@@ -381,27 +348,7 @@ const Home = () => {
             </motion.p>
           </motion.div>
           
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div 
-              className="slide-in-left"
-              initial={{ opacity: 0, x: -100, rotateY: -15 }}
-              whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
-              transition={{ duration: 1, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <motion.img 
-                src={barbershopPhoto} 
-                alt="Lavish Barbershop interior with barbers and clients" 
-                className="rounded-xl shadow-2xl w-full h-auto" 
-                whileHover={{ 
-                  scale: 1.05,
-                  rotateY: 5,
-                  boxShadow: "0 25px 50px rgba(0,0,0,0.3)"
-                }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.div>
-            
+          <div className="flex justify-center">
             <div className="slide-in-right">
               <div className="grid grid-cols-2 gap-6 mb-8">
                 {[
@@ -737,7 +684,7 @@ const Home = () => {
           <div className="text-center mb-16 slide-in-up">
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">Visit Our Location</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Conveniently located in the heart of Woodland, California
+              Conveniently located in the heart of Sacramento, California
             </p>
           </div>
           
@@ -750,7 +697,7 @@ const Home = () => {
           >
             <div className="rounded-xl overflow-hidden shadow-2xl">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3112.5234!2d-121.7889391!3d38.6780595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808529f4b2ee85e9%3A0x8b47c5c9d7e8a123!2s368%20California%20St%2C%20Woodland%2C%20CA%2095695!5e0!3m2!1sen!2sus!4v1623456789!5m2!1sen!2sus"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3045.4!2d-121.4750079!3d38.6289322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ad7a75a47527b:0x72f34e06ca73220d!2s3408%20Northgate%20Blvd%20%235%2C%20Sacramento%2C%20CA%2095834!5e0!3m2!1sen!2sus!4v1642567890123!5m2!1sen!2sus"
                 width="100%" 
                 height="450" 
                 style={{ border: 0 }}
@@ -894,7 +841,7 @@ const Home = () => {
                   viewport={{ once: true }}
                 >
                   <iframe
-                    src="https://www.google.com/maps/place/Lavish+Barbershop/@38.6288499,-121.4749474,3a,75y,90t/data=!3m8!1e2!3m6!1sAF1QipMv9bKmEpDh5MjvB2QCInCRE-KHH6NF8HxpU_JO!2e10!3e12!6shttps:%2F%2Flh3.googleusercontent.com%2Fp%2FAF1QipMv9bKmEpDh5MjvB2QCInCRE-KHH6NF8HxpU_JO%3Dw203-h270-k-no!7i1124!8i1500!4m16!1m8!3m7!1s0x809ad7a75a47527b:0x72f34e06ca73220d!2sLavish+Barbershop!8m2!3d38.6289322!4d-121.4750079!10e5!16s%2Fg%2F11g7npztc6!3m6!1s0x809ad7a75a47527b:0x72f34e06ca73220d!8m2!3d38.6289322!4d-121.4750079!10e5!16s%2Fg%2F11g7npztc6?entry=ttu&g_ep=EgoyMDI1MDcyMS4wIKXMDSoASAFQAw%3D%3D"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3045.4!2d-121.4750079!3d38.6289322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ad7a75a47527b:0x72f34e06ca73220d!2s3408%20Northgate%20Blvd%20%235%2C%20Sacramento%2C%20CA%2095834!5e0!3m2!1sen!2sus!4v1642567890123!5m2!1sen!2sus"
                     width="100%"
                     height="300"
                     style={{ border: 0 }}

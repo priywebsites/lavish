@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a highly animated, modern barbershop website for Kings Barbershop in Woodland, California. Built with React and Express.js, featuring extensive animations, a blue/red color theme, and mobile responsiveness. The application uses a monorepo structure with separate client and server directories, utilizing TypeScript throughout for type safety. Optimized for Vercel deployment with comprehensive animation system and real barbershop gallery images.
+This is a highly animated, modern barbershop website for Lavish Barbershop in Sacramento, California. Built with React and Express.js, featuring extensive animations, a blue/red color theme, and mobile responsiveness. The application uses a monorepo structure with separate client and server directories, utilizing TypeScript throughout for type safety. Optimized for Vercel deployment with comprehensive animation system and real barbershop gallery images.
 
 ## User Preferences
 
@@ -62,8 +62,8 @@ Preferred communication style: Simple, everyday language.
   - Parallax and particle effects
   - Staggered animations with custom delays
   - Performance-optimized with will-change and backface-visibility
-- **Gallery**: Real barbershop images from Kings Barbershop portfolio
-- **Google Maps Integration**: Embedded map for 368 California St, Woodland, CA location
+- **Gallery**: Real barbershop images from Lavish Barbershop portfolio
+- **Google Maps Integration**: Embedded map for 3408 Northgate Blvd #5, Sacramento, CA location
 
 ### API Structure
 - **Base Path**: All API routes prefixed with `/api`
