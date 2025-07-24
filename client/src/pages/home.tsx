@@ -249,7 +249,7 @@ const Home = () => {
             <motion.img 
               src={lavishLogo} 
               alt="Lavish Barbershop Logo" 
-              className="w-24 h-auto zoom-pulse"
+              className="w-32 h-auto zoom-pulse"
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}
               transition={{ duration: 1.5, type: "spring", stiffness: 200 }}
