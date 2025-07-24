@@ -304,7 +304,7 @@ const Home = () => {
                   repeat: Infinity
                 }}
               ></motion.i>
-              Call Now - (530) 665-3684
+              Call Now - +1 (916) 949-0376
             </motion.button>
             <a href="#services" className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white px-8 py-4 rounded-full text-lg font-semibold border border-white/30 transition-all">
               View Services
@@ -335,7 +335,7 @@ const Home = () => {
               transition={{ duration: 1, delay: 0.2, type: "spring", stiffness: 200 }}
               viewport={{ once: true }}
             >
-              About Kings Barbershop
+              About Lavish Barbershop
             </motion.h2>
             <motion.p 
               className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
@@ -526,7 +526,7 @@ const Home = () => {
                   repeat: Infinity
                 }}
               ></motion.i>
-              Call to Book - (530) 665-3684
+              Call to Book - +1 (916) 949-0376
             </motion.button>
           </div>
         </div>
@@ -881,7 +881,7 @@ const Home = () => {
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <i className="fas fa-phone mr-3 wave"></i>Call Now - (916) 949-0376
+                    <i className="fas fa-phone mr-3 wave"></i>Call Now - +1 (916) 949-0376
                   </motion.button>
                   
                   <div className="mt-6 flex justify-center space-x-4">
