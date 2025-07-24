@@ -5,6 +5,7 @@ import galleryImage2 from "@assets/Screen Shot 2025-07-24 at 2.34.53 PM_17533859
 import galleryImage3 from "@assets/Screen Shot 2025-07-24 at 2.34.38 PM_1753385949009.png";
 import galleryImage4 from "@assets/Screen Shot 2025-07-24 at 2.34.18 PM_1753385950416.png";
 import kingsLogo from "@assets/Elegant Kings Barbershop Logo_1753386406103.png";
+import barbershopPhoto from "@assets/Screen Shot 2025-07-24 at 2.52.27 PM_1753386825029.png";
 
 const Home = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -389,8 +390,8 @@ const Home = () => {
               viewport={{ once: true }}
             >
               <motion.img 
-                src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
-                alt="Modern barbershop interior" 
+                src={barbershopPhoto} 
+                alt="Kings Barbershop interior with barbers and clients" 
                 className="rounded-xl shadow-2xl w-full h-auto" 
                 whileHover={{ 
                   scale: 1.05,
@@ -446,9 +447,10 @@ const Home = () => {
                 ))}
               </div>
               
-              <motion.button 
-                onClick={callNow}
-                className="btn-call bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-bold shadow-xl neon-glow"
+              <div className="flex justify-center">
+                <motion.button 
+                  onClick={callNow}
+                  className="btn-call bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-bold shadow-xl neon-glow"
                 initial={{ opacity: 0, y: 50, scale: 0.5, rotate: -15 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1, rotate: 0 }}
                 transition={{ 
@@ -479,6 +481,7 @@ const Home = () => {
                 ></motion.i>
                 Book Your Appointment
               </motion.button>
+              </div>
             </div>
           </div>
         </div>
