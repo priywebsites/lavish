@@ -28,12 +28,12 @@
   --radius: 0.5rem;
   
   /* Custom Kings Barbershop colors */
-  --primary-blue: hsl(221, 83%, 53%);
-  --secondary-blue: hsl(217, 91%, 60%);
+  --primary-blue: hsl(220, 100%, 45%);
+  --secondary-blue: hsl(220, 80%, 35%);
   --accent-red: hsl(0, 84%, 60%);
-  --dark-navy: hsl(222, 84%, 5%);
+  --dark-black: hsl(0, 0%, 0%);
+  --dark-gray: hsl(0, 0%, 15%);
   --light-gray: hsl(210, 40%, 98%);
-  --gold-accent: hsl(43, 96%, 56%);
 }
 
 .dark {
@@ -76,9 +76,9 @@
 @layer utilities {
   /* Animated Background */
   .animated-bg {
-    background: linear-gradient(-45deg, hsl(221, 83%, 53%), hsl(217, 91%, 60%), hsl(221, 83%, 53%), hsl(222, 84%, 5%));
+    background: linear-gradient(-45deg, hsl(220, 100%, 45%), hsl(220, 80%, 35%), hsl(0, 84%, 60%), hsl(0, 0%, 0%));
     background-size: 400% 400%;
-    animation: gradientShift 8s ease infinite;
+    animation: gradientShift 6s ease infinite;
   }
   
   @keyframes gradientShift {
@@ -438,19 +438,133 @@
     width: 100%;
     height: 100%;
     background-image: 
-      radial-gradient(2px 2px at 20px 30px, rgba(59, 130, 246, 0.3), transparent),
-      radial-gradient(2px 2px at 40px 70px, rgba(239, 68, 68, 0.3), transparent),
-      radial-gradient(1px 1px at 90px 40px, rgba(251, 191, 36, 0.3), transparent),
-      radial-gradient(1px 1px at 130px 80px, rgba(59, 130, 246, 0.3), transparent),
+      radial-gradient(2px 2px at 20px 30px, rgba(0, 102, 255, 0.4), transparent),
+      radial-gradient(2px 2px at 40px 70px, rgba(239, 68, 68, 0.4), transparent),
+      radial-gradient(1px 1px at 90px 40px, rgba(0, 0, 0, 0.3), transparent),
+      radial-gradient(1px 1px at 130px 80px, rgba(0, 102, 255, 0.3), transparent),
       radial-gradient(2px 2px at 160px 30px, rgba(239, 68, 68, 0.3), transparent);
     background-size: 200px 100px;
-    animation: particleFloat 20s linear infinite;
+    animation: particleFloat 15s linear infinite;
     pointer-events: none;
   }
   
   @keyframes particleFloat {
     0% { transform: translateX(-200px) translateY(0); }
     100% { transform: translateX(calc(100vw + 200px)) translateY(-100px); }
+  }
+
+  /* Advanced Animation Effects */
+  .matrix-rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 98px,
+      rgba(0, 102, 255, 0.1) 100px
+    );
+    animation: matrixRain 8s linear infinite;
+    pointer-events: none;
+  }
+  
+  @keyframes matrixRain {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100vh); }
+  }
+  
+  .glitch {
+    animation: glitch 3s infinite;
+  }
+  
+  @keyframes glitch {
+    0%, 90%, 100% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+  }
+  
+  .neon-glow {
+    animation: neonGlow 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes neonGlow {
+    from {
+      box-shadow: 0 0 5px rgba(0, 102, 255, 0.5), 
+                  0 0 10px rgba(0, 102, 255, 0.5), 
+                  0 0 15px rgba(0, 102, 255, 0.5);
+    }
+    to {
+      box-shadow: 0 0 10px rgba(0, 102, 255, 0.8), 
+                  0 0 20px rgba(0, 102, 255, 0.8), 
+                  0 0 30px rgba(0, 102, 255, 0.8);
+    }
+  }
+  
+  .bounce-in {
+    animation: bounceIn 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  @keyframes bounceIn {
+    0% { transform: scale(0.3) rotate(-10deg); opacity: 0; }
+    50% { transform: scale(1.05) rotate(5deg); }
+    70% { transform: scale(0.9) rotate(-2deg); }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  }
+  
+  .elastic-bounce {
+    animation: elasticBounce 2s ease-in-out infinite;
+  }
+  
+  @keyframes elasticBounce {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    30% { transform: scale(1.2) rotate(2deg); }
+    60% { transform: scale(0.8) rotate(-1deg); }
+    80% { transform: scale(1.1) rotate(1deg); }
+  }
+  
+  .flip-in {
+    animation: flipIn 0.8s ease-in-out;
+  }
+  
+  @keyframes flipIn {
+    0% { transform: rotateX(-90deg) scale(0.5); opacity: 0; }
+    50% { transform: rotateX(0deg) scale(1.1); }
+    100% { transform: rotateX(0deg) scale(1); opacity: 1; }
+  }
+  
+  .slide-diagonal {
+    animation: slideDiagonal 1s ease-out;
+  }
+  
+  @keyframes slideDiagonal {
+    0% { transform: translate(-100px, 100px) rotate(-45deg); opacity: 0; }
+    100% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+  }
+  
+  .morphing-bg {
+    animation: morphingBg 8s ease-in-out infinite;
+  }
+  
+  @keyframes morphingBg {
+    0% { border-radius: 50% 50% 50% 50%; }
+    25% { border-radius: 25% 75% 25% 75%; }
+    50% { border-radius: 75% 25% 75% 25%; }
+    75% { border-radius: 50% 25% 75% 50%; }
+    100% { border-radius: 50% 50% 50% 50%; }
+  }
+  
+  .zoom-pulse {
+    animation: zoomPulse 2s ease-in-out infinite;
+  }
+  
+  @keyframes zoomPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
   }
 
   /* Mobile Responsive Animations */

@@ -4,6 +4,7 @@ import galleryImage1 from "@assets/Screen Shot 2025-07-24 at 2.35.23 PM_17533859
 import galleryImage2 from "@assets/Screen Shot 2025-07-24 at 2.34.53 PM_1753385949008.png";
 import galleryImage3 from "@assets/Screen Shot 2025-07-24 at 2.34.38 PM_1753385949009.png";
 import galleryImage4 from "@assets/Screen Shot 2025-07-24 at 2.34.18 PM_1753385950416.png";
+import kingsLogo from "@assets/Elegant Kings Barbershop Logo_1753386406103.png";
 
 const Home = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -63,10 +64,6 @@ const Home = () => {
     galleryImage1,
     galleryImage2,
     galleryImage3,
-    galleryImage4,
-    galleryImage1, // Repeat for more grid items
-    galleryImage2,
-    galleryImage3,
     galleryImage4
   ];
 
@@ -104,18 +101,28 @@ const Home = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <i className="fas fa-crown text-yellow-500 text-2xl mr-2 icon-wobble"></i>
-              <span className="text-xl font-bold text-glow">Kings Barbershop</span>
+              <motion.img 
+                src={kingsLogo} 
+                alt="Kings Barbershop Logo" 
+                className="h-8 w-auto mr-3 elastic-bounce"
+                animate={{ rotate: [0, 2, -2, 0] }}
+                transition={{ duration: 4, repeat: Infinity }}
+              />
+              <span className="text-xl font-bold text-black dark:text-white glitch">Kings Barbershop</span>
             </motion.div>
             <div className="hidden md:flex items-center space-x-8">
               {['About', 'Services', 'Gallery', 'Reviews', 'Contact'].map((item, index) => (
                 <motion.a 
                   key={item}
                   href={`#${item.toLowerCase()}`} 
-                  className="hover:text-blue-600 transition-all duration-300 hover:scale-110 text-slide"
+                  className="text-black dark:text-white hover:text-blue-600 transition-all duration-300 hover:scale-110 neon-glow text-lg font-semibold"
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.1 * index }}
+                  whileHover={{ 
+                    scale: 1.15,
+                    textShadow: "0 0 8px rgba(0, 102, 255, 0.8)"
+                  }}
                 >
                   {item}
                 </motion.a>
@@ -140,50 +147,53 @@ const Home = () => {
         
         {/* Enhanced Floating Elements */}
         <motion.div 
-          className="absolute top-20 left-10 text-yellow-500"
+          className="absolute top-20 left-10 text-blue-400"
           animate={{ 
-            y: [0, -20, 0],
-            rotate: [0, 5, -5, 0],
-            scale: [1, 1.1, 1]
+            y: [0, -30, 0],
+            rotate: [0, 15, -15, 0],
+            scale: [1, 1.3, 1]
           }}
           transition={{ 
-            duration: 4,
+            duration: 3,
             repeat: Infinity,
             ease: "easeInOut"
           }}
         >
-          <i className="fas fa-cut text-4xl opacity-30 icon-pulse"></i>
+          <i className="fas fa-cut text-5xl opacity-40 neon-glow elastic-bounce"></i>
         </motion.div>
         
         <motion.div 
-          className="absolute bottom-32 right-20 text-yellow-500"
+          className="absolute bottom-32 right-20 text-red-400"
           animate={{ 
-            y: [0, -25, 0],
-            x: [0, 10, 0],
-            rotate: [0, -10, 10, 0]
+            y: [0, -35, 0],
+            x: [0, 20, 0],
+            rotate: [0, -20, 20, 0],
+            scale: [1, 1.2, 0.8, 1]
           }}
           transition={{ 
-            duration: 5,
+            duration: 4,
             repeat: Infinity,
             ease: "easeInOut",
             delay: 1
           }}
         >
-          <i className="fas fa-scissors text-3xl opacity-30 icon-wobble"></i>
+          <i className="fas fa-scissors text-4xl opacity-40 glitch zoom-pulse"></i>
         </motion.div>
         
         <motion.div 
-          className="absolute top-1/2 left-20 text-yellow-500"
+          className="absolute top-1/2 left-20 text-black"
           animate={{ 
-            y: [0, -15, 0],
-            rotate: [0, 360]
+            y: [0, -25, 0],
+            rotate: [0, 720],
+            scale: [1, 1.5, 1]
           }}
           transition={{ 
-            y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
-            rotate: { duration: 8, repeat: Infinity, ease: "linear" }
+            y: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+            rotate: { duration: 6, repeat: Infinity, ease: "linear" },
+            scale: { duration: 2, repeat: Infinity, ease: "easeInOut" }
           }}
         >
-          <i className="fas fa-razor text-2xl opacity-30"></i>
+          <i className="fas fa-razor text-3xl opacity-50 morphing-bg"></i>
         </motion.div>
         
         <motion.div 
@@ -224,9 +234,26 @@ const Home = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <div className="rotating-border w-32 h-32 mx-auto mb-8 bg-white rounded-full flex items-center justify-center">
-            <i className="fas fa-crown text-yellow-500 text-4xl"></i>
-          </div>
+          <motion.div 
+            className="relative w-40 h-40 mx-auto mb-8 bg-black/20 backdrop-blur-sm rounded-full flex items-center justify-center neon-glow morphing-bg"
+            animate={{ 
+              rotate: [0, 360],
+              scale: [1, 1.1, 1]
+            }}
+            transition={{ 
+              rotate: { duration: 8, repeat: Infinity, ease: "linear" },
+              scale: { duration: 3, repeat: Infinity }
+            }}
+          >
+            <motion.img 
+              src={kingsLogo} 
+              alt="Kings Barbershop Logo" 
+              className="w-24 h-auto zoom-pulse"
+              initial={{ scale: 0, rotate: -180 }}
+              animate={{ scale: 1, rotate: 0 }}
+              transition={{ duration: 1.5, type: "spring", stiffness: 200 }}
+            />
+          </motion.div>
           
           <motion.h1 
             className="text-5xl md:text-7xl font-black mb-6 leading-tight"
@@ -234,8 +261,33 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
           >
-            <span className="block">KINGS</span>
-            <span className="block text-yellow-500">BARBERSHOP</span>
+            <motion.span 
+              className="block text-white glitch"
+              animate={{ 
+                textShadow: [
+                  "0 0 0 rgba(0, 102, 255, 0)",
+                  "2px 2px 0 rgba(0, 102, 255, 0.5)",
+                  "0 0 0 rgba(0, 102, 255, 0)"
+                ]
+              }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              KINGS
+            </motion.span>
+            <motion.span 
+              className="block text-red-500 bounce-in"
+              animate={{ 
+                scale: [1, 1.05, 1],
+                textShadow: [
+                  "0 0 10px rgba(239, 68, 68, 0.5)",
+                  "0 0 20px rgba(239, 68, 68, 0.8)",
+                  "0 0 10px rgba(239, 68, 68, 0.5)"
+                ]
+              }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
+              BARBERSHOP
+            </motion.span>
           </motion.h1>
           
           <motion.p 
@@ -253,12 +305,39 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.9 }}
           >
-            <button 
+            <motion.button 
               onClick={callNow}
-              className="btn-call bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-full text-lg font-bold shadow-2xl"
+              className="btn-call bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-full text-lg font-bold shadow-2xl elastic-bounce neon-glow"
+              initial={{ opacity: 0, y: 100, scale: 0.2, rotate: -45 }}
+              animate={{ opacity: 1, y: 0, scale: 1, rotate: 0 }}
+              transition={{ 
+                duration: 1.2, 
+                delay: 1.1,
+                type: "spring",
+                stiffness: 150,
+                damping: 10
+              }}
+              whileHover={{ 
+                scale: 1.25, 
+                y: -20,
+                rotate: 5,
+                boxShadow: "0 30px 60px rgba(239, 68, 68, 0.7)"
+              }}
+              whileTap={{ scale: 0.85 }}
             >
-              <i className="fas fa-phone mr-3"></i>Call Now - (530) 665-3684
-            </button>
+              <motion.i 
+                className="fas fa-phone mr-3"
+                animate={{
+                  rotate: [0, 20, -20, 0],
+                  scale: [1, 1.3, 1]
+                }}
+                transition={{
+                  duration: 1.2,
+                  repeat: Infinity
+                }}
+              ></motion.i>
+              Call Now - (530) 665-3684
+            </motion.button>
             <a href="#services" className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white px-8 py-4 rounded-full text-lg font-semibold border border-white/30 transition-all">
               View Services
             </a>
@@ -327,7 +406,7 @@ const Home = () => {
                 {[
                   { icon: "fas fa-cut", title: "Expert Cuts", desc: "Precision styling by master barbers", bg: "bg-blue-50", color: "text-blue-600", delay: 0 },
                   { icon: "fas fa-star", title: "Premium Service", desc: "Luxury experience every visit", bg: "bg-red-50", color: "text-red-500", delay: 0.1 },
-                  { icon: "fas fa-clock", title: "Convenient Hours", desc: "Open 6 days a week", bg: "bg-yellow-50", color: "text-yellow-500", delay: 0.2 },
+                  { icon: "fas fa-clock", title: "Convenient Hours", desc: "Open 6 days a week", bg: "bg-black/10", color: "text-black", delay: 0.2 },
                   { icon: "fas fa-map-marker-alt", title: "Prime Location", desc: "Heart of Woodland, CA", bg: "bg-blue-50", color: "text-blue-500", delay: 0.3 }
                 ].map((item, index) => (
                   <motion.div 
@@ -369,15 +448,36 @@ const Home = () => {
               
               <motion.button 
                 onClick={callNow}
-                className="btn-call bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-bold shadow-xl pulse-custom"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
+                className="btn-call bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-bold shadow-xl neon-glow"
+                initial={{ opacity: 0, y: 50, scale: 0.5, rotate: -15 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1, rotate: 0 }}
+                transition={{ 
+                  duration: 0.8, 
+                  delay: 0.8,
+                  type: "spring",
+                  stiffness: 150
+                }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.05, y: -2 }}
+                whileHover={{ 
+                  scale: 1.15, 
+                  y: -10,
+                  rotate: 2,
+                  boxShadow: "0 20px 40px rgba(0, 102, 255, 0.5)"
+                }}
                 whileTap={{ scale: 0.95 }}
+
               >
-                <i className="fas fa-phone mr-3 wave"></i>Book Your Appointment
+                <motion.i 
+                  className="fas fa-phone mr-3"
+                  animate={{
+                    rotate: [0, 10, -10, 0]
+                  }}
+                  transition={{
+                    duration: 1,
+                    repeat: Infinity
+                  }}
+                ></motion.i>
+                Book Your Appointment
               </motion.button>
             </div>
           </div>
@@ -385,8 +485,9 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-gradient-to-br from-slate-900 to-blue-900 text-white">
-        <div className="max-w-6xl mx-auto px-4">
+      <section id="services" className="py-20 bg-gradient-to-br from-slate-900 to-blue-900 text-white relative overflow-hidden">
+        <div className="matrix-rain"></div>
+        <div className="max-w-6xl mx-auto px-4 relative z-10">
           <div className="text-center mb-16 slide-in-up">
             <h2 className="text-4xl md:text-5xl font-black mb-6">Our Services</h2>
             <p className="text-xl opacity-90 max-w-3xl mx-auto">
@@ -398,13 +499,46 @@ const Home = () => {
             {services.map((service, index) => (
               <motion.div 
                 key={index}
-                className="service-card bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/20 text-center"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="service-card bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/20 text-center neon-glow morphing-bg"
+                initial={{ opacity: 0, y: 100, scale: 0.5, rotate: -15 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1, rotate: 0 }}
+                transition={{ 
+                  duration: 0.8, 
+                  delay: index * 0.2,
+                  type: "spring",
+                  stiffness: 150
+                }}
                 viewport={{ once: true }}
+                whileHover={{
+                  scale: 1.08,
+                  y: -15,
+                  rotate: 2,
+                  boxShadow: "0 20px 40px rgba(0, 102, 255, 0.3)",
+                  transition: { duration: 0.3 }
+                }}
               >
-                <i className={`${service.icon} text-5xl text-yellow-500 mb-6 icon-bounce`} style={{ animationDelay: `${-index * 0.3}s` }}></i>
+                <motion.i 
+                  className={`${service.icon} text-5xl mb-6`}
+                  style={{ 
+                    color: index % 2 === 0 ? '#0066ff' : '#ef4444',
+                    animationDelay: `${-index * 0.3}s` 
+                  }}
+                  animate={{ 
+                    scale: [1, 1.3, 1],
+                    rotate: [0, 10, -10, 0],
+                    y: [0, -15, 0]
+                  }}
+                  transition={{ 
+                    duration: 2,
+                    repeat: Infinity,
+                    delay: index * 0.3
+                  }}
+                  whileHover={{
+                    scale: 1.5,
+                    rotate: 15,
+                    transition: { duration: 0.2 }
+                  }}
+                ></motion.i>
                 <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
                 <p className="opacity-80 leading-relaxed">{service.description}</p>
               </motion.div>
@@ -412,12 +546,38 @@ const Home = () => {
           </div>
           
           <div className="text-center mt-12">
-            <button 
+            <motion.button 
               onClick={callNow}
-              className="btn-call bg-red-500 hover:bg-red-600 text-white px-10 py-4 rounded-full text-xl font-bold shadow-2xl"
+              className="btn-call bg-red-500 hover:bg-red-600 text-white px-10 py-4 rounded-full text-xl font-bold shadow-2xl zoom-pulse neon-glow"
+              initial={{ opacity: 0, scale: 0.3, rotate: -20 }}
+              whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ 
+                duration: 1,
+                type: "spring",
+                stiffness: 200
+              }}
+              viewport={{ once: true }}
+              whileHover={{ 
+                scale: 1.2, 
+                y: -15,
+                rotate: 3,
+                boxShadow: "0 25px 50px rgba(239, 68, 68, 0.6)"
+              }}
+              whileTap={{ scale: 0.9 }}
             >
-              <i className="fas fa-phone mr-3"></i>Call to Book - (530) 665-3684
-            </button>
+              <motion.i 
+                className="fas fa-phone mr-3"
+                animate={{
+                  rotate: [0, 15, -15, 0],
+                  scale: [1, 1.2, 1]
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity
+                }}
+              ></motion.i>
+              Call to Book - (530) 665-3684
+            </motion.button>
           </div>
         </div>
       </section>
@@ -436,17 +596,43 @@ const Home = () => {
             {galleryImages.map((image, index) => (
               <motion.div 
                 key={index}
-                className="gallery-item rounded-xl overflow-hidden shadow-lg cursor-pointer"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="gallery-item rounded-xl overflow-hidden shadow-lg cursor-pointer neon-glow"
+                initial={{ 
+                  opacity: 0, 
+                  scale: 0.3, 
+                  rotate: -30,
+                  y: 100
+                }}
+                whileInView={{ 
+                  opacity: 1, 
+                  scale: 1, 
+                  rotate: 0,
+                  y: 0
+                }}
+                transition={{ 
+                  duration: 0.8, 
+                  delay: index * 0.15,
+                  type: "spring",
+                  stiffness: 120
+                }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ 
+                  scale: 1.15,
+                  rotate: 5,
+                  y: -20,
+                  boxShadow: "0 25px 50px rgba(0, 102, 255, 0.4)",
+                  transition: { duration: 0.3 }
+                }}
+
               >
-                <img 
+                <motion.img 
                   src={image} 
                   alt={`Gallery image ${index + 1}`} 
                   className="w-full h-64 object-cover" 
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { duration: 0.3 }
+                  }}
                 />
               </motion.div>
             ))}
@@ -468,21 +654,68 @@ const Home = () => {
             {reviews.map((review, index) => (
               <motion.div 
                 key={index}
-                className="testimonial-card bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/20"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className="testimonial-card bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/20 neon-glow flip-in"
+                initial={{ opacity: 0, y: 80, scale: 0.5, rotateX: -90 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
+                transition={{ 
+                  duration: 0.8, 
+                  delay: index * 0.3,
+                  type: "spring",
+                  stiffness: 100
+                }}
                 viewport={{ once: true }}
+                whileHover={{
+                  scale: 1.05,
+                  y: -10,
+                  boxShadow: "0 20px 40px rgba(0, 102, 255, 0.3)",
+                  transition: { duration: 0.3 }
+                }}
+
               >
                 <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center mr-4">
+                  <motion.div 
+                    className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mr-4 elastic-bounce"
+                    animate={{ 
+                      scale: [1, 1.2, 1],
+                      rotate: [0, 5, -5, 0]
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      delay: index * 0.3
+                    }}
+                  >
                     <i className="fas fa-user text-white"></i>
-                  </div>
+                  </motion.div>
                   <div>
-                    <h4 className="font-bold text-lg">{review.name}</h4>
-                    <div className="flex text-yellow-500">
+                    <motion.h4 
+                      className="font-bold text-lg glitch"
+                      animate={{
+                        textShadow: [
+                          "0 0 0 rgba(239, 68, 68, 0)",
+                          "1px 1px 0 rgba(239, 68, 68, 0.5)",
+                          "0 0 0 rgba(239, 68, 68, 0)"
+                        ]
+                      }}
+                      transition={{ duration: 3, repeat: Infinity }}
+                    >
+                      {review.name}
+                    </motion.h4>
+                    <div className="flex text-red-500">
                       {[...Array(5)].map((_, i) => (
-                        <i key={i} className="fas fa-star"></i>
+                        <motion.i 
+                          key={i} 
+                          className="fas fa-star"
+                          animate={{
+                            scale: [1, 1.3, 1],
+                            rotate: [0, 10, 0]
+                          }}
+                          transition={{
+                            duration: 1,
+                            repeat: Infinity,
+                            delay: i * 0.1
+                          }}
+                        ></motion.i>
                       ))}
                     </div>
                   </div>
@@ -547,9 +780,24 @@ const Home = () => {
                   transition={{ duration: 0.6 }}
                   viewport={{ once: true }}
                 >
-                  <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mr-6 pulse-custom">
+                  <motion.div 
+                    className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mr-6 neon-glow"
+                    animate={{ 
+                      scale: [1, 1.2, 1],
+                      rotate: [0, 10, -10, 0],
+                      boxShadow: [
+                        "0 0 10px rgba(0, 102, 255, 0.5)",
+                        "0 0 30px rgba(0, 102, 255, 0.8)",
+                        "0 0 10px rgba(0, 102, 255, 0.5)"
+                      ]
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity
+                    }}
+                  >
                     <i className="fas fa-map-marker-alt text-2xl"></i>
-                  </div>
+                  </motion.div>
                   <div>
                     <h3 className="text-xl font-bold mb-2">Address</h3>
                     <p className="opacity-80">368 California St, Woodland, CA 95695, United States</p>
@@ -563,9 +811,25 @@ const Home = () => {
                   transition={{ duration: 0.6, delay: 0.2 }}
                   viewport={{ once: true }}
                 >
-                  <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mr-6 pulse-custom">
+                  <motion.div 
+                    className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mr-6 zoom-pulse"
+                    animate={{ 
+                      scale: [1, 1.3, 1],
+                      rotate: [0, 15, -15, 0],
+                      boxShadow: [
+                        "0 0 10px rgba(239, 68, 68, 0.5)",
+                        "0 0 30px rgba(239, 68, 68, 0.8)",
+                        "0 0 10px rgba(239, 68, 68, 0.5)"
+                      ]
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      delay: 0.5
+                    }}
+                  >
                     <i className="fas fa-phone text-2xl"></i>
-                  </div>
+                  </motion.div>
                   <div>
                     <h3 className="text-xl font-bold mb-2">Phone</h3>
                     <p className="opacity-80">+1 (530) 665-3684</p>
@@ -579,9 +843,25 @@ const Home = () => {
                   transition={{ duration: 0.6, delay: 0.4 }}
                   viewport={{ once: true }}
                 >
-                  <div className="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mr-6 pulse-custom">
-                    <i className="fas fa-clock text-2xl"></i>
-                  </div>
+                  <motion.div 
+                    className="w-16 h-16 bg-black rounded-full flex items-center justify-center mr-6 bounce-in"
+                    animate={{ 
+                      scale: [1, 1.25, 1],
+                      rotate: [0, 20, -20, 0],
+                      boxShadow: [
+                        "0 0 10px rgba(0, 0, 0, 0.5)",
+                        "0 0 30px rgba(0, 0, 0, 0.8)",
+                        "0 0 10px rgba(0, 0, 0, 0.5)"
+                      ]
+                    }}
+                    transition={{
+                      duration: 2.5,
+                      repeat: Infinity,
+                      delay: 1
+                    }}
+                  >
+                    <i className="fas fa-clock text-2xl text-white"></i>
+                  </motion.div>
                   <div>
                     <h3 className="text-xl font-bold mb-2">Hours</h3>
                     <div className="opacity-80 space-y-1">
